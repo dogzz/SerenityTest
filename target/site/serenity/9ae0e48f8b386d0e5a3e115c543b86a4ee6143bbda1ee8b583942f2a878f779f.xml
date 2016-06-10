@@ -1,0 +1,41 @@
+<acceptance-test-run title="add one item" name="add one item" steps="3" successful="3" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="14950" timestamp="2016-06-10T15:30:52.934+03:00" session-id="41f7c8b7-9f51-4bdd-844d-75823f818d94">
+  <user-story id="AddingItems" name="Adding items" path="stories/AngularInteractions/repeater/AddingItems.story"/>
+  <tags>
+    <tag name="Angular interactions" type="epic"/>
+    <tag name="Angular interactions/Repeater" type="feature"/>
+    <tag name="Repeater/Adding items" type="story"/>
+  </tags>
+  <test-group name="Given repeater is open" result="SUCCESS">
+    <screenshots>
+      <screenshot image="fbcf2c3105391368eebde105e36e0e00.png"/>
+    </screenshots>
+    <test-step result="SUCCESS" duration="12179">
+      <screenshots>
+        <screenshot image="fbcf2c3105391368eebde105e36e0e00.png"/>
+      </screenshots>
+      <description>Open repeater page</description>
+    </test-step>
+  </test-group>
+  <test-group name="When I adding item" result="SUCCESS">
+    <screenshots>
+      <screenshot image="dc61050c3a739ef7aac403854ba5c737.png"/>
+    </screenshots>
+    <test-step result="SUCCESS" duration="621">
+      <screenshots>
+        <screenshot image="dc61050c3a739ef7aac403854ba5c737.png"/>
+      </screenshots>
+      <description>Add new item</description>
+    </test-step>
+  </test-group>
+  <test-group name="Then new item is added" result="SUCCESS">
+    <screenshots>
+      <screenshot image="dc61050c3a739ef7aac403854ba5c737.png"/>
+    </screenshots>
+    <test-step result="SUCCESS" duration="802">
+      <screenshots>
+        <screenshot image="dc61050c3a739ef7aac403854ba5c737.png"/>
+      </screenshots>
+      <description>Item should exists: 0</description>
+    </test-step>
+  </test-group>
+</acceptance-test-run>

@@ -1,0 +1,6 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Animation directives","Hide square","SUCCESS","2016-06-10T15:31:42.199+03:00","0.0","33.77"
+"Animation directives","Reverse array","PENDING","2016-06-10T15:32:15.969+03:00","0.0","4.12"
+"Animation directives","Reverse array back","PENDING","2016-06-10T15:32:20.092+03:00","0.0","6.15"
+"Animation directives","Reverse array three times","PENDING","2016-06-10T15:32:26.242+03:00","0.0","4.15"
+"Animation directives","Show square","SUCCESS","2016-06-10T15:31:16.371+03:00","0.0","25.83"

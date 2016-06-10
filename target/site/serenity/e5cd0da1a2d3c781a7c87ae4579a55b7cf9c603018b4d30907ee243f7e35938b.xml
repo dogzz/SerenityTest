@@ -1,0 +1,43 @@
+<acceptance-test-run title="Addition" name="Addition" steps="3" successful="3" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="21362" timestamp="2016-06-10T15:30:19.408+03:00" session-id="01a08610-96af-4a7a-96cb-0e0a1de7145b">
+  <user-story id="CalculatorStory" name="Calculator story" path="stories/AngularInteractions/calc/CalculatorStory.story"/>
+  <tags>
+    <tag name="Angular interactions" type="epic"/>
+    <tag name="Angular interactions/Calc" type="feature"/>
+    <tag name="Calc/Calculator story" type="story"/>
+  </tags>
+  <test-group name="Given a calculator is open" result="SUCCESS">
+    <screenshots>
+      <screenshot image="febbe7512bf2b8733e2df49edcf09ff2.png"/>
+    </screenshots>
+    <test-step result="SUCCESS" duration="14859">
+      <screenshots>
+        <screenshot image="febbe7512bf2b8733e2df49edcf09ff2.png"/>
+      </screenshots>
+      <description>Open calculator page</description>
+    </test-step>
+  </test-group>
+  <test-group name="When I {add} {3} and {10}" result="SUCCESS">
+    <screenshots>
+      <screenshot image="063b51be6c9426fae18211b26023037e.png"/>
+    </screenshots>
+    <test-step result="SUCCESS" duration="3706">
+      <screenshots>
+        <screenshot image="589ff0bb89c5d5e9b3044348976501c4.png"/>
+      </screenshots>
+      <description>Calculate addition: 3, 10</description>
+    </test-step>
+  </test-group>
+  <test-group name="Then result {13} is displayed" result="SUCCESS">
+    <screenshots>
+      <screenshot image="5777fb276fdf2aed0f9d70021783b447.png"/>
+      <screenshot image="d2060785c0fa758968b02dc7a86c9ecc.png"/>
+    </screenshots>
+    <test-step result="SUCCESS" duration="1535">
+      <screenshots>
+        <screenshot image="5777fb276fdf2aed0f9d70021783b447.png"/>
+        <screenshot image="d2060785c0fa758968b02dc7a86c9ecc.png"/>
+      </screenshots>
+      <description>Should display calculation result: 13</description>
+    </test-step>
+  </test-group>
+</acceptance-test-run>

@@ -1,0 +1,4 @@
+Narrative:
+In order to make sure that Serenity BDD works witn AngularJS UI
+As a tester
+I want to check different interactions of Serenity with Angular sites

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jruby:jruby-complete:1.7.4">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jruby/jruby-complete/1.7.4/jruby-complete-1.7.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

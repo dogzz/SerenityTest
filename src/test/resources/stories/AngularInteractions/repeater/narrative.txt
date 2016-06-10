@@ -1,0 +1,6 @@
+AngularJS Repeater
+
+Narrative:
+As a tester
+I want to interact with ng-repeater element
+So that I can write end-to-end tests for such elements

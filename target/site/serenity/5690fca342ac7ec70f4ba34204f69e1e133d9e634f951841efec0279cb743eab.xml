@@ -1,0 +1,149 @@
+<acceptance-test-run title="Show square" name="Show square" steps="9" successful="9" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="25826" timestamp="2016-06-10T15:31:16.371+03:00" session-id="5ed83361-51a3-4a5e-bfa0-c21fecbf6bc5">
+  <user-story id="AnimationDirectives" name="Animation directives" path="stories/AngularInteractions/animation/AnimationDirectives.story"/>
+  <tags>
+    <tag name="Angular interactions" type="epic"/>
+    <tag name="Angular interactions/Animation" type="feature"/>
+    <tag name="Animation/Animation directives" type="story"/>
+  </tags>
+  <examples>
+    <datasets>
+      <dataset startRow="0" rowCount="0"/>
+    </datasets>
+    <headers>
+      <header>element</header>
+    </headers>
+    <rows>
+      <row result="SUCCESS">
+        <value>EnterLeave</value>
+      </row>
+      <row result="SUCCESS">
+        <value>AddRemoveClass</value>
+      </row>
+      <row result="SUCCESS">
+        <value>CSSFrame</value>
+      </row>
+    </rows>
+  </examples>
+  <test-group name="[1] {element=EnterLeave}" result="SUCCESS">
+    <test-group name="Given an animation page is open" result="SUCCESS">
+      <screenshots>
+        <screenshot image="1e7bd168908d8024cfca7b138c67d2ab.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="3109">
+        <screenshots>
+          <screenshot image="7d60886a62df763b38f18e35001d2484.png"/>
+          <screenshot image="1e7bd168908d8024cfca7b138c67d2ab.png"/>
+        </screenshots>
+        <description>Open animation page</description>
+      </test-step>
+    </test-group>
+    <test-group name="When I {check} {EnterLeave} element" result="SUCCESS">
+      <screenshots>
+        <screenshot image="1e7bd168908d8024cfca7b138c67d2ab.png"/>
+        <screenshot image="c64ea138decab1953c12d8224e228b19.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="2930">
+        <screenshots>
+          <screenshot image="1e7bd168908d8024cfca7b138c67d2ab.png"/>
+          <screenshot image="c64ea138decab1953c12d8224e228b19.png"/>
+        </screenshots>
+        <description>Check element: EnterLeave</description>
+      </test-step>
+    </test-group>
+    <test-group name="Then square for {EnterLeave} should be displayed" result="SUCCESS">
+      <screenshots>
+        <screenshot image="c64ea138decab1953c12d8224e228b19.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="305">
+        <screenshots>
+          <screenshot image="c64ea138decab1953c12d8224e228b19.png"/>
+        </screenshots>
+        <description>Should see square: EnterLeave</description>
+      </test-step>
+    </test-group>
+  </test-group>
+  <test-group name="[2] {element=AddRemoveClass}" result="SUCCESS">
+    <screenshots>
+      <screenshot image="c64ea138decab1953c12d8224e228b19.png"/>
+    </screenshots>
+    <test-group name="Given an animation page is open" result="SUCCESS">
+      <screenshots>
+        <screenshot image="c64ea138decab1953c12d8224e228b19.png"/>
+        <screenshot image="5364bd2c75a3343bcd8a8fcc1d39fe26.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="979">
+        <screenshots>
+          <screenshot image="c64ea138decab1953c12d8224e228b19.png"/>
+          <screenshot image="5364bd2c75a3343bcd8a8fcc1d39fe26.png"/>
+        </screenshots>
+        <description>Open animation page</description>
+      </test-step>
+    </test-group>
+    <test-group name="When I {check} {AddRemoveClass} element" result="SUCCESS">
+      <screenshots>
+        <screenshot image="5364bd2c75a3343bcd8a8fcc1d39fe26.png"/>
+        <screenshot image="32ec1ac567b9f5c619d1b6aea62fbf8f.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="2822">
+        <screenshots>
+          <screenshot image="5364bd2c75a3343bcd8a8fcc1d39fe26.png"/>
+          <screenshot image="32ec1ac567b9f5c619d1b6aea62fbf8f.png"/>
+        </screenshots>
+        <description>Check element: AddRemoveClass</description>
+      </test-step>
+    </test-group>
+    <test-group name="Then square for {AddRemoveClass} should be displayed" result="SUCCESS">
+      <screenshots>
+        <screenshot image="32ec1ac567b9f5c619d1b6aea62fbf8f.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="256">
+        <screenshots>
+          <screenshot image="32ec1ac567b9f5c619d1b6aea62fbf8f.png"/>
+        </screenshots>
+        <description>Should see square: AddRemoveClass</description>
+      </test-step>
+    </test-group>
+  </test-group>
+  <test-group name="[3] {element=CSSFrame}" result="SUCCESS">
+    <screenshots>
+      <screenshot image="32ec1ac567b9f5c619d1b6aea62fbf8f.png"/>
+    </screenshots>
+    <test-group name="Given an animation page is open" result="SUCCESS">
+      <screenshots>
+        <screenshot image="32ec1ac567b9f5c619d1b6aea62fbf8f.png"/>
+        <screenshot image="4729bd7a315f30eead0d748c400cca41.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="961">
+        <screenshots>
+          <screenshot image="32ec1ac567b9f5c619d1b6aea62fbf8f.png"/>
+          <screenshot image="4729bd7a315f30eead0d748c400cca41.png"/>
+        </screenshots>
+        <description>Open animation page</description>
+      </test-step>
+    </test-group>
+    <test-group name="When I {check} {CSSFrame} element" result="SUCCESS">
+      <screenshots>
+        <screenshot image="4729bd7a315f30eead0d748c400cca41.png"/>
+        <screenshot image="efc2da9e2a939cd4497f3dab9f84f06f.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="2032">
+        <screenshots>
+          <screenshot image="4729bd7a315f30eead0d748c400cca41.png"/>
+          <screenshot image="efc2da9e2a939cd4497f3dab9f84f06f.png"/>
+        </screenshots>
+        <description>Check element: CSSFrame</description>
+      </test-step>
+    </test-group>
+    <test-group name="Then square for {CSSFrame} should be displayed" result="SUCCESS">
+      <screenshots>
+        <screenshot image="efc2da9e2a939cd4497f3dab9f84f06f.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="267">
+        <screenshots>
+          <screenshot image="efc2da9e2a939cd4497f3dab9f84f06f.png"/>
+        </screenshots>
+        <description>Should see square: CSSFrame</description>
+      </test-step>
+    </test-group>
+  </test-group>
+</acceptance-test-run>

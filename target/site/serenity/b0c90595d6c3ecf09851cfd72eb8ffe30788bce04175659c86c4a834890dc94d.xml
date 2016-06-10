@@ -1,0 +1,188 @@
+<acceptance-test-run title="Hide square" name="Hide square" steps="12" successful="12" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="33768" timestamp="2016-06-10T15:31:42.199+03:00" session-id="5ed83361-51a3-4a5e-bfa0-c21fecbf6bc5">
+  <user-story id="AnimationDirectives" name="Animation directives" path="stories/AngularInteractions/animation/AnimationDirectives.story"/>
+  <tags>
+    <tag name="Angular interactions" type="epic"/>
+    <tag name="Angular interactions/Animation" type="feature"/>
+    <tag name="Animation/Animation directives" type="story"/>
+  </tags>
+  <examples>
+    <datasets>
+      <dataset startRow="0" rowCount="0"/>
+    </datasets>
+    <headers>
+      <header>element</header>
+    </headers>
+    <rows>
+      <row result="SUCCESS">
+        <value>EnterLeave</value>
+      </row>
+      <row result="SUCCESS">
+        <value>AddRemoveClass</value>
+      </row>
+      <row result="SUCCESS">
+        <value>CSSFrame</value>
+      </row>
+    </rows>
+  </examples>
+  <test-group name="[1] {element=EnterLeave}" result="SUCCESS">
+    <screenshots>
+      <screenshot image="efc2da9e2a939cd4497f3dab9f84f06f.png"/>
+    </screenshots>
+    <test-group name="Given an animation page is open" result="SUCCESS">
+      <screenshots>
+        <screenshot image="efc2da9e2a939cd4497f3dab9f84f06f.png"/>
+        <screenshot image="1e7bd168908d8024cfca7b138c67d2ab.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="933">
+        <screenshots>
+          <screenshot image="efc2da9e2a939cd4497f3dab9f84f06f.png"/>
+          <screenshot image="1e7bd168908d8024cfca7b138c67d2ab.png"/>
+        </screenshots>
+        <description>Open animation page</description>
+      </test-step>
+    </test-group>
+    <test-group name="And {EnterLeave} element is {checked}" result="SUCCESS">
+      <screenshots>
+        <screenshot image="1e7bd168908d8024cfca7b138c67d2ab.png"/>
+        <screenshot image="c64ea138decab1953c12d8224e228b19.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="2805">
+        <screenshots>
+          <screenshot image="1e7bd168908d8024cfca7b138c67d2ab.png"/>
+          <screenshot image="c64ea138decab1953c12d8224e228b19.png"/>
+        </screenshots>
+        <description>Check element: EnterLeave</description>
+      </test-step>
+    </test-group>
+    <test-group name="When I {uncheck} {EnterLeave} element" result="SUCCESS">
+      <screenshots>
+        <screenshot image="c64ea138decab1953c12d8224e228b19.png"/>
+        <screenshot image="5364bd2c75a3343bcd8a8fcc1d39fe26.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="2789">
+        <screenshots>
+          <screenshot image="c64ea138decab1953c12d8224e228b19.png"/>
+          <screenshot image="5364bd2c75a3343bcd8a8fcc1d39fe26.png"/>
+        </screenshots>
+        <description>Uncheck element: EnterLeave</description>
+      </test-step>
+    </test-group>
+    <test-group name="Then square for {EnterLeave} should not be displayed" result="SUCCESS">
+      <screenshots>
+        <screenshot image="5364bd2c75a3343bcd8a8fcc1d39fe26.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="4260">
+        <screenshots>
+          <screenshot image="5364bd2c75a3343bcd8a8fcc1d39fe26.png"/>
+        </screenshots>
+        <description>Should not see square: EnterLeave</description>
+      </test-step>
+    </test-group>
+  </test-group>
+  <test-group name="[2] {element=AddRemoveClass}" result="SUCCESS">
+    <screenshots>
+      <screenshot image="5364bd2c75a3343bcd8a8fcc1d39fe26.png"/>
+    </screenshots>
+    <test-group name="Given an animation page is open" result="SUCCESS">
+      <screenshots>
+        <screenshot image="5364bd2c75a3343bcd8a8fcc1d39fe26.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="1296">
+        <screenshots>
+          <screenshot image="5364bd2c75a3343bcd8a8fcc1d39fe26.png"/>
+        </screenshots>
+        <description>Open animation page</description>
+      </test-step>
+    </test-group>
+    <test-group name="And {AddRemoveClass} element is {checked}" result="SUCCESS">
+      <screenshots>
+        <screenshot image="5364bd2c75a3343bcd8a8fcc1d39fe26.png"/>
+        <screenshot image="32ec1ac567b9f5c619d1b6aea62fbf8f.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="2800">
+        <screenshots>
+          <screenshot image="5364bd2c75a3343bcd8a8fcc1d39fe26.png"/>
+          <screenshot image="32ec1ac567b9f5c619d1b6aea62fbf8f.png"/>
+        </screenshots>
+        <description>Check element: AddRemoveClass</description>
+      </test-step>
+    </test-group>
+    <test-group name="When I {uncheck} {AddRemoveClass} element" result="SUCCESS">
+      <screenshots>
+        <screenshot image="32ec1ac567b9f5c619d1b6aea62fbf8f.png"/>
+        <screenshot image="4729bd7a315f30eead0d748c400cca41.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="2765">
+        <screenshots>
+          <screenshot image="32ec1ac567b9f5c619d1b6aea62fbf8f.png"/>
+          <screenshot image="4729bd7a315f30eead0d748c400cca41.png"/>
+        </screenshots>
+        <description>Uncheck element: AddRemoveClass</description>
+      </test-step>
+    </test-group>
+    <test-group name="Then square for {AddRemoveClass} should not be displayed" result="SUCCESS">
+      <screenshots>
+        <screenshot image="4729bd7a315f30eead0d748c400cca41.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="4222">
+        <screenshots>
+          <screenshot image="4729bd7a315f30eead0d748c400cca41.png"/>
+        </screenshots>
+        <description>Should not see square: AddRemoveClass</description>
+      </test-step>
+    </test-group>
+  </test-group>
+  <test-group name="[3] {element=CSSFrame}" result="SUCCESS">
+    <screenshots>
+      <screenshot image="4729bd7a315f30eead0d748c400cca41.png"/>
+    </screenshots>
+    <test-group name="Given an animation page is open" result="SUCCESS">
+      <screenshots>
+        <screenshot image="4729bd7a315f30eead0d748c400cca41.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="1219">
+        <screenshots>
+          <screenshot image="4729bd7a315f30eead0d748c400cca41.png"/>
+        </screenshots>
+        <description>Open animation page</description>
+      </test-step>
+    </test-group>
+    <test-group name="And {CSSFrame} element is {checked}" result="SUCCESS">
+      <screenshots>
+        <screenshot image="4729bd7a315f30eead0d748c400cca41.png"/>
+        <screenshot image="efc2da9e2a939cd4497f3dab9f84f06f.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="2036">
+        <screenshots>
+          <screenshot image="4729bd7a315f30eead0d748c400cca41.png"/>
+          <screenshot image="efc2da9e2a939cd4497f3dab9f84f06f.png"/>
+        </screenshots>
+        <description>Check element: CSSFrame</description>
+      </test-step>
+    </test-group>
+    <test-group name="When I {uncheck} {CSSFrame} element" result="SUCCESS">
+      <screenshots>
+        <screenshot image="efc2da9e2a939cd4497f3dab9f84f06f.png"/>
+        <screenshot image="c4576aab8cfae375c7dea775250f5c6d.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="1708">
+        <screenshots>
+          <screenshot image="efc2da9e2a939cd4497f3dab9f84f06f.png"/>
+          <screenshot image="c4576aab8cfae375c7dea775250f5c6d.png"/>
+        </screenshots>
+        <description>Uncheck element: CSSFrame</description>
+      </test-step>
+    </test-group>
+    <test-group name="Then square for {CSSFrame} should not be displayed" result="SUCCESS">
+      <screenshots>
+        <screenshot image="c4576aab8cfae375c7dea775250f5c6d.png"/>
+      </screenshots>
+      <test-step result="SUCCESS" duration="4240">
+        <screenshots>
+          <screenshot image="c4576aab8cfae375c7dea775250f5c6d.png"/>
+        </screenshots>
+        <description>Should not see square: CSSFrame</description>
+      </test-step>
+    </test-group>
+  </test-group>
+</acceptance-test-run>

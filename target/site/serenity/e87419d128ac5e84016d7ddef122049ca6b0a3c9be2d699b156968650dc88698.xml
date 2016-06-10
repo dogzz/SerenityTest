@@ -1,0 +1,64 @@
+<acceptance-test-run title="sending POST requests to HTTP service" name="sending POST requests to HTTP service" steps="6" successful="6" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="3546" timestamp="2016-06-10T17:58:47.090+03:00">
+  <user-story id="PostRequests" name="Post requests" path="stories/WebServicesInteractions/HTTPService/PostRequests.story"/>
+  <tags>
+    <tag name="Web services interactions" type="epic"/>
+    <tag name="Web services interactions/Http service" type="feature"/>
+    <tag name="Http service/Post requests" type="story"/>
+  </tags>
+  <examples>
+    <datasets>
+      <dataset startRow="0" rowCount="0"/>
+    </datasets>
+    <headers>
+      <header>parameter1</header>
+      <header>parameter2</header>
+      <header>data</header>
+    </headers>
+    <rows>
+      <row result="SUCCESS">
+        <value>aaaaa</value>
+        <value>bbbbb</value>
+        <value>custom data pampampam</value>
+      </row>
+      <row result="SUCCESS">
+        <value>first param</value>
+        <value>second param</value>
+        <value>this is data</value>
+      </row>
+    </rows>
+  </examples>
+  <test-group name="[1] {parameter1=aaaaa, parameter2=bbbbb, data=custom data pampampam}" result="SUCCESS">
+    <test-group name="When I send to HTTPService request with {aaaaa} and {bbbbb} and {custom data pampampam}" result="SUCCESS">
+      <test-group name="Prepare request to HTTP service: aaaaa, bbbbb, custom data pampampam" result="SUCCESS">
+        <test-step result="SUCCESS" duration="0">
+          <description>POST http://www.angularjshub.com:80/code/examples/servercalls/01_HTTPService/server.php?param1=aaaaa&amp;param2=bbbbb&#xd;&#xd;</description>
+        </test-step>
+      </test-group>
+      <test-step result="SUCCESS" duration="0">
+        <description>Send prepared POST request to HTTP service</description>
+      </test-step>
+    </test-group>
+    <test-group name="Then response contains {aaaaa}, {bbbbb} and {custom data pampampam}" result="SUCCESS">
+      <test-step result="SUCCESS" duration="63">
+        <description>Should get response with parameters: aaaaa, bbbbb, custom data pampampam</description>
+      </test-step>
+    </test-group>
+  </test-group>
+  <test-group name="[2] {parameter1=first param, parameter2=second param, data=this is data}" result="SUCCESS">
+    <test-group name="When I send to HTTPService request with {first param} and {second param} and {this is data}" result="SUCCESS">
+      <test-group name="Prepare request to HTTP service: first param, second param, this is data" result="SUCCESS">
+        <test-step result="SUCCESS" duration="1">
+          <description>POST http://www.angularjshub.com:80/code/examples/servercalls/01_HTTPService/server.php?param1=first%20param&amp;param2=second%20param&#xd;&#xd;</description>
+        </test-step>
+      </test-group>
+      <test-step result="SUCCESS" duration="1">
+        <description>Send prepared POST request to HTTP service</description>
+      </test-step>
+    </test-group>
+    <test-group name="Then response contains {first param}, {second param} and {this is data}" result="SUCCESS">
+      <test-step result="SUCCESS" duration="3">
+        <description>Should get response with parameters: first param, second param, this is data</description>
+      </test-step>
+    </test-group>
+  </test-group>
+</acceptance-test-run>

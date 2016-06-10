@@ -1,0 +1,43 @@
+group 'com.dogzz'
+version '1.0-SNAPSHOT'
+
+
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.1")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+dependencies {
+    compile 'com.paulhammant:ngwebdriver:0.9.6'
+    compile 'net.serenity-bdd:serenity-core:1.1.36'
+    compile 'net.serenity-bdd:serenity-rest-assured:1.1.36'
+    compile 'net.serenity-bdd:serenity-junit:1.1.36'
+    compile 'junit:junit:4.12'
+    compile 'org.seleniumhq.selenium:htmlunit-driver:2.21'
+    compile('org.assertj:assertj-core:1.7.0')
+    compile 'ch.qos.logback:logback-classic:1.1.7'
+    compile 'com.fasterxml.jackson:jackson-datatype-json-org:1.8.0'
+    testCompile 'net.serenity-bdd:serenity-jbehave:1.0.21'
+}
+
+test {
+    testLogging.showStandardStreams = true
+}
+
+gradle.startParameter.continueOnFailure = true
