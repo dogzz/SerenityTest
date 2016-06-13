@@ -48,6 +48,15 @@ public class ServicesSteps {
     }
 
     @Step
+    public void preparePutRequestToHTTPService(String parameter1, String parameter2, String data) {
+        given()
+                .specification(requests.getRequest(parameter1, parameter2))
+                .body(data)
+                .log().all()
+                .put("server.php");
+    }
+
+    @Step
     public void sendPreparedPOSTRequestToHTTPService() {
 //        when()
 //                .post("server.php");
@@ -63,5 +72,30 @@ public class ServicesSteps {
                 .body(containsString(data));
     }
 
+    @Step
+    public void sendDeleteRequestToHTTPService(String parameter1, String parameter2) {
+        given()
+                .specification(requests.getRequest(parameter1, parameter2))
+                .log().all()
+                .delete("server.php");
+    }
+    @Step
+    public void sendHeadRequestToHTTPService(String parameter1, String parameter2) {
+        given()
+                .specification(requests.getRequest(parameter1, parameter2))
+                .log().all()
+                .head("server.php");
+    }
 
+    @Step
+    public void shouldGetResponseWithNamedParameter(String parameterName, String parameterValue) {
+        then()
+                .body(containsString(parameterName.concat(" = ").concat(parameterValue)));
+    }
+
+    @Step
+    public void shouldGetSuccessfulResponse() {
+        then()
+                .statusCode(200);
+    }
 }

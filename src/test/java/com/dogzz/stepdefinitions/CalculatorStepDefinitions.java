@@ -8,6 +8,8 @@ package com.dogzz.stepdefinitions;
 import com.dogzz.steps.CalculatorSteps;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.*;
+import org.jbehave.core.configuration.MostUsefulConfiguration;
+import org.jbehave.core.steps.ParameterControls;
 
 
 public class CalculatorStepDefinitions {

@@ -36,10 +36,43 @@ public class ServicesStepDefinitions {
         servicesSteps.sendPreparedPOSTRequestToHTTPService();
     }
 
+    @When(value = "I send to HTTPService PUT request with $parameter1 and $parameter2 and $data", priority = 3)
+    public void preparePutRequestToHTTPService(@Named("parameter1") String parameter1,
+                                            @Named("parameter2") String parameter2,
+                                            @Named("data") String data) {
+        servicesSteps.preparePutRequestToHTTPService(parameter1, parameter2, data);
+    }
+
     @Then(value = "response contains $parameter1, $parameter2 and $data", priority = 1)
     public void verifyResponseForPOSTContains(@Named("parameter1") String parameter1,
                                               @Named("parameter2") String parameter2,
                                               @Named("data") String data) {
         servicesSteps.shouldGetResponseWithParameters(parameter1, parameter2, data);
+    }
+
+    @When(value = "I send to HTTPService $requestType request with $parameter1Value and $parameter2Value", priority = 2)
+    public void prepareDeleteOrHeadRequestToHTTPService(String requestType,
+                                                        @Named("parameter1Value") String parameter1,
+                                                        @Named("parameter2Value") String parameter2) {
+        switch (requestType) {
+            case "DELETE":
+                servicesSteps.sendDeleteRequestToHTTPService(parameter1, parameter2);
+                break;
+            case "HEAD":
+                servicesSteps.sendHeadRequestToHTTPService(parameter1, parameter2);
+                break;
+        }
+
+    }
+
+    @Then(value = "response contains $parameterName with value $parameterValue", priority = 1)
+    public void verifyResponseForOtherContains(String parameterName,
+                                              String parameterValue) {
+        servicesSteps.shouldGetResponseWithNamedParameter(parameterName, parameterValue);
+    }
+
+    @Then(value = "response is successful", priority = 1)
+    public void verifyResponseIsSuccessful() {
+        servicesSteps.shouldGetSuccessfulResponse();
     }
 }
