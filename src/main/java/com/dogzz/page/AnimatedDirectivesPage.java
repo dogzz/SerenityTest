@@ -5,33 +5,24 @@
 
 package com.dogzz.page;
 
-import com.paulhammant.ngwebdriver.NgWebDriver;
 import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.serenitybdd.core.pages.WebElementFacadeImpl;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.WhenPageOpens;
-import net.thucydides.core.pages.components.HtmlTable;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static ch.lambdaj.Lambda.convert;
 
 @DefaultUrl("http://www.angularjshub.com/code/examples/animations/01_AnimatedDirectives/index.demo.php")
-public class AnimatedDirectivesPage extends PageObject {
-
-    NgWebDriver ngDriver = new NgWebDriver((JavascriptExecutor) getDriver());
+public class AnimatedDirectivesPage extends BasePage {
 
     public AnimatedDirectivesPage(WebDriver driver) {
         super(driver);
-        getDriver().manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
     }
 
     @FindBy(ngModel = "enterLeaveSwitch")
@@ -66,32 +57,32 @@ public class AnimatedDirectivesPage extends PageObject {
 
     public void checkShowSquare() {
         setCheckbox(showSquare, true);
-        ngDriver.waitForAngularRequestsToFinish();
+        waitForAngular();
     }
 
     public void checkShowClassSquare() {
         setCheckbox(showClassSquare, true);
-        ngDriver.waitForAngularRequestsToFinish();
+        waitForAngular();
     }
 
     public void checkShowCSSSquare() {
         setCheckbox(showCSSSquare, true);
-        ngDriver.waitForAngularRequestsToFinish();
+        waitForAngular();
     }
 
     public void uncheckShowSquare() {
         setCheckbox(showSquare, false);
-        ngDriver.waitForAngularRequestsToFinish();
+        waitForAngular();
     }
 
     public void uncheckShowClassSquare() {
         setCheckbox(showClassSquare, false);
-        ngDriver.waitForAngularRequestsToFinish();
+        waitForAngular();
     }
 
     public void uncheckShowCSSSquare() {
         setCheckbox(showCSSSquare, false);
-        ngDriver.waitForAngularRequestsToFinish();
+        waitForAngular();
     }
 
     public boolean isSquarePresent(String element) {
@@ -106,7 +97,7 @@ public class AnimatedDirectivesPage extends PageObject {
 
     public void reverseArray() {
         reverseArray.click();
-        ngDriver.waitForAngularRequestsToFinish();
+        waitForAngular();
     }
 
     public List<String> getCurrentArray() {

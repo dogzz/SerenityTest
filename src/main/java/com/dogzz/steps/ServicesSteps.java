@@ -6,18 +6,28 @@
 package com.dogzz.steps;
 
 import com.dogzz.request.HTTPServiceRequests;
+import com.jayway.restassured.http.ContentType;
+import com.jayway.restassured.internal.assertion.AssertParameter;
+import com.jayway.restassured.parsing.Parser;
 import com.jayway.restassured.path.json.JsonPath;
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 
+
+import java.util.List;
+import java.util.Map;
 
 import static net.serenitybdd.rest.SerenityRest.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.equalTo;
 
 public class ServicesSteps {
 
     HTTPServiceRequests requests = new HTTPServiceRequests();
+    private JsonPath response;
+    private List<Map<String, String>> contacts;
 
     @Step
     public void sendRequestToJsonService(String parameter1, String parameter2) {
@@ -97,5 +107,54 @@ public class ServicesSteps {
     public void shouldGetSuccessfulResponse() {
         then()
                 .statusCode(200);
+    }
+
+    @Step
+    public void requestContactById(String id) {
+        rest()
+                .specification(requests.getContactRequestById(id))
+                .log().all()
+                .get("retrieve/{id}");
+        response = then().extract().body().jsonPath();
+    }
+
+    @Step
+    public void returnedContactShouldHaveId(String id) {
+        assertThat(response.getString("id")).isEqualTo(id);
+//        then()
+//                .using().log().all()
+//                .defaultParser(Parser.JSON)
+//                .body("id", equalTo(id));
+    }
+
+    @Step
+    public void returnedContactShouldHaveName(String lastName, String firstName) {
+        assertThat(response.getString("firstName")).isEqualTo(firstName);
+        assertThat(response.getString("lastName")).isEqualTo(lastName);
+    }
+
+    @Step
+    public void initializeContactsService() {
+        requests = new HTTPServiceRequests("code/examples/servercalls/03_ResourceService/people/");
+    }
+
+    @Step
+    public void requestAllContacts() {
+        rest()
+                .specification(requests.getAllContactsRequest())
+                .log().all()
+                .get("retrievearray/0");
+        response = then().extract().body().jsonPath();
+        contacts = response.getList("$");
+    }
+
+    @Step
+    public void contactShouldBeReturned(Map<String, String> row) {
+        assertThat(contacts).contains(row);
+    }
+
+    @Step
+    public void returnedContactsCountShouldBe(int count) {
+        assertThat(contacts.size()).isEqualTo(count);
     }
 }

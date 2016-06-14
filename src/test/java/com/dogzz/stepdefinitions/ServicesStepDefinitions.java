@@ -6,15 +6,23 @@
 package com.dogzz.stepdefinitions;
 
 import com.dogzz.steps.ServicesSteps;
+import com.dogzz.steps.ServicesUISteps;
 import net.thucydides.core.annotations.Steps;
+import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import org.jbehave.core.model.ExamplesTable;
+
+import java.util.List;
+import java.util.Map;
 
 public class ServicesStepDefinitions {
 
     @Steps
     ServicesSteps servicesSteps;
+    @Steps
+    ServicesUISteps servicesUISteps;
 
     @When(value = "I send $parameter1 and $parameter2 to JsonService", priority = 1)
     public void sendRequestToJsonService(@Named("parameter1") String parameter1,
@@ -74,5 +82,60 @@ public class ServicesStepDefinitions {
     @Then(value = "response is successful", priority = 1)
     public void verifyResponseIsSuccessful() {
         servicesSteps.shouldGetSuccessfulResponse();
+    }
+
+    @Given("QService mapped page is open")
+    public void QServicePageIsOpen() {
+        servicesUISteps.openQServicePage();
+    }
+
+    @When("I execute $action related to $type service")
+    public void executeActionOnQServivePage(String action, String serviceType) {
+        switch (action) {
+            case "Success":
+                servicesUISteps.executeSuccessActionForServiceType(serviceType);
+                break;
+            case "Failure":
+                servicesUISteps.executeFailureActionForServiceType(serviceType);
+                break;
+        }
+    }
+
+    @Then("the output $result is displayed")
+    public void verifyResultOnQServicePage(String result) {
+        servicesUISteps.shouldDisplayForSavedServiceTypeCorrectRersult(result);
+    }
+
+    @Given("a system with some contacts")
+    public void systemHasContacts() {
+        servicesSteps.initializeContactsService();
+    }
+
+    @When("I request contact with id is $id")
+    public void sendRequestToGetContactById(String id) {
+        servicesSteps.requestContactById(id);
+    }
+
+    @Then("contact with id is $id is returned")
+    public void verifyThatReturnedContactHasId(String id) {
+        servicesSteps.returnedContactShouldHaveId(id);
+    }
+
+    @Then("contact has name $lastName $firstName")
+    public void verifyThatReturnedContactHasName(String lastName, String firstName) {
+        servicesSteps.returnedContactShouldHaveName(lastName, firstName);
+    }
+
+    @When("I request all contacts")
+    public void sendRequestToGetAllContacts() {
+        servicesSteps.requestAllContacts();
+    }
+
+    @Then("the contacts returned are: $contactsTable")
+    public void verifyAllReturnedContacts(ExamplesTable contactsTable) {
+        servicesSteps.returnedContactsCountShouldBe(contactsTable.getRows().size());
+        for (Map<String, String> row : contactsTable.getRows()) {
+            servicesSteps.contactShouldBeReturned(row);
+        }
     }
 }
