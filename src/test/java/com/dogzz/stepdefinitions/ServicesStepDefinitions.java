@@ -8,11 +8,17 @@ package com.dogzz.stepdefinitions;
 import com.dogzz.steps.ServicesSteps;
 import com.dogzz.steps.ServicesUISteps;
 import net.thucydides.core.annotations.Steps;
+import org.hamcrest.Matcher;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.jbehave.core.model.ExamplesTable;
+
+import static net.thucydides.core.matchers.BeanMatchers.each;
+import static net.thucydides.core.matchers.BeanMatchers.the;
+import static org.hamcrest.Matchers.*;
+//import static org.hamcrest.core.IsNot.not;
 
 import java.util.List;
 import java.util.Map;
@@ -137,5 +143,42 @@ public class ServicesStepDefinitions {
         for (Map<String, String> row : contactsTable.getRows()) {
             servicesSteps.contactShouldBeReturned(row);
         }
+    }
+
+    @When("I add new contact")
+    public void sendRequestToAddNewContact() {
+        servicesSteps.addNewContact("Cartman", "Eric");
+    }
+
+    @Then("response with user parameters is returned")
+    public void verifyResponseContainsAddedContactParams() {
+        servicesSteps.returnedContactShouldHaveName("Cartman", "Eric");
+        servicesSteps.returnedContactShouldHaveAnyId();
+    }
+
+    @When("I delete existing contact")
+    public void sendRequestToDeleteContact() {
+        servicesSteps.deleteContactWithId("12");
+    }
+
+    @Then("response about successful removal is returned")
+    public void verifyResponseAboutRemovalSuccess() {
+        servicesSteps.shouldGetSuccessfulResponseForRemovalContactWithId("12");
+    }
+
+    @Then("contact is not present in the system")
+    public void verifyRemovedContactIsNotPresent() {
+        servicesSteps.requestAllContacts();
+        servicesSteps.contactListShouldNotContain(the("id", is(("12"))));
+    }
+
+    @When("I update data for existing contact")
+    public void sendRequestToUpdateContact() {
+        servicesSteps.updateContactWithId("2");
+    }
+
+    @Then("response about successful update is returned")
+    public void verifyResponseAboutUpdateSuccess() {
+        servicesSteps.shouldGetSuccessfulResponseForUpdatingContactWithId("2");
     }
 }

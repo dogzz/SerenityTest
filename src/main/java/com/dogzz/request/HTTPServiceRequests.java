@@ -61,9 +61,16 @@ public class HTTPServiceRequests {
                 .pathParam("id", id);
     }
 
+    public RequestSpecification getAddContactRequest(String lastName, String firstName) {
+        return getContactRequestById("0")
+                .queryParam("firstName", firstName)
+                .queryParam("lastName",lastName);
+    }
+
     public RequestSpecification getAllContactsRequest() {
         return given()
                 .contentType(ContentType.TEXT)
                 .param("idsArray[]", 1, 2, 3);
     }
+
 }

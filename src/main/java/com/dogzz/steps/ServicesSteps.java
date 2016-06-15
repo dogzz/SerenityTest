@@ -6,22 +6,19 @@
 package com.dogzz.steps;
 
 import com.dogzz.request.HTTPServiceRequests;
-import com.jayway.restassured.http.ContentType;
-import com.jayway.restassured.internal.assertion.AssertParameter;
-import com.jayway.restassured.parsing.Parser;
 import com.jayway.restassured.path.json.JsonPath;
-import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
-
+import net.thucydides.core.matchers.BeanMatcher;
 
 import java.util.List;
 import java.util.Map;
 
+import static ch.lambdaj.Lambda.join;
 import static net.serenitybdd.rest.SerenityRest.*;
+import static net.thucydides.core.matchers.BeanMatcherAsserts.matches;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.equalTo;
+
 
 public class ServicesSteps {
 
@@ -156,5 +153,60 @@ public class ServicesSteps {
     @Step
     public void returnedContactsCountShouldBe(int count) {
         assertThat(contacts.size()).isEqualTo(count);
+    }
+
+    @Step
+    public void addNewContact(String lastName, String firstName) {
+        rest()
+                .specification(requests.getAddContactRequest(lastName, firstName))
+                .body("PICTURE_DATA")
+                .log().all()
+                .post("store/{id}");
+        response = then().extract().body().jsonPath();
+    }
+
+    @Step
+    public void returnedContactShouldHaveAnyId() {
+        assertThat(response.getString("id")).isNotEmpty();
+    }
+
+    @Step
+    public void deleteContactWithId(String id) {
+        rest()
+                .specification(requests.getContactRequestById(id))
+                .log().all()
+                .delete("erase/{id}");
+        response = then().extract().body().jsonPath();
+    }
+
+    @Step
+    public void shouldGetSuccessfulResponseForRemovalContactWithId(String id) {
+        assertThat(response.getString("result")).isEqualToIgnoringCase("OK");
+        assertThat(response.getString("message"))
+                .isEqualToIgnoringCase("Person ".concat(id).concat(" deleted"));
+    }
+
+    @Step
+    public void contactListShouldNotContain(BeanMatcher... matchers) {
+        if (matches(contacts, matchers)) {
+            throw new AssertionError("Found matching elements for " + join(matchers)
+                    + System.getProperty("line.separator")
+                    +"Elements where " + join(contacts));
+        }
+    }
+
+    public void updateContactWithId(String id) {
+        rest()
+                .specification(requests.getContactRequestById(id))
+                .body("NEW_PICTURE_DATA")
+                .log().all()
+                .put("updatepicture/{id}");
+        response = then().extract().body().jsonPath();
+    }
+
+    public void shouldGetSuccessfulResponseForUpdatingContactWithId(String id) {
+        assertThat(response.getString("result")).isEqualToIgnoringCase("OK");
+        assertThat(response.getString("message"))
+                .isEqualToIgnoringCase("Picture of person ".concat(id).concat(" updated"));
     }
 }

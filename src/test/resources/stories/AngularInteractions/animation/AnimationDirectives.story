@@ -28,7 +28,7 @@ Examples:
 
 Scenario: Reverse array
 Meta:
-@pending
+@manual
 Given an animation page is open
 When I reversing array
 Then array should be reversed
