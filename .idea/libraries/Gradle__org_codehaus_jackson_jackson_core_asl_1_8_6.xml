@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: org.codehaus.jackson:jackson-core-asl:1.8.6">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.jackson/jackson-core-asl/1.8.6/af67f8c640e512f5dc9ea174d73f31b58cfeb446/jackson-core-asl-1.8.6.jar!/" />
+      <root url="jar://C:/.gradle/caches/modules-2/files-2.1/org.codehaus.jackson/jackson-core-asl/1.8.6/af67f8c640e512f5dc9ea174d73f31b58cfeb446/jackson-core-asl-1.8.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.jackson/jackson-core-asl/1.8.6/1747dc0dd9b9cbaa05fde5f15b7f11c0eb40395e/jackson-core-asl-1.8.6-sources.jar!/" />
+      <root url="jar://C:/.gradle/caches/modules-2/files-2.1/org.codehaus.jackson/jackson-core-asl/1.8.6/1747dc0dd9b9cbaa05fde5f15b7f11c0eb40395e/jackson-core-asl-1.8.6-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

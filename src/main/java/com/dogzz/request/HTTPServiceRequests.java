@@ -11,7 +11,6 @@ import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.path.json.JsonPath;
 import com.jayway.restassured.specification.RequestSpecification;
 import net.serenitybdd.rest.RestDefaultsChained;
-import org.openqa.selenium.os.CommandLine;
 
 import java.util.HashMap;
 import java.util.Map;

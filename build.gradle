@@ -14,7 +14,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.1")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.36")
     }
 }
 
@@ -33,12 +33,14 @@ dependencies {
     compile('org.assertj:assertj-core:1.7.0')
     compile 'ch.qos.logback:logback-classic:1.1.7'
     compile 'com.fasterxml.jackson:jackson-datatype-json-org:1.8.0'
-    testCompile 'net.serenity-bdd:serenity-jbehave:1.0.21'
+    compile 'net.serenity-bdd:serenity-jbehave:1.0.21'
 }
 
 test {
     testLogging.showStandardStreams = true
-    systemProperties System.getProperties()
+//    systemProperties System.getProperties()
+    systemProperty "metafilter", System.getProperty("metafilter")
+    systemProperty "webdriver.driver", System.getProperty("webdriver.driver")
 }
 
 gradle.startParameter.continueOnFailure = true
