@@ -1,4 +1,6 @@
 Meta:
+@tag feature: repeater
+@web
 
 Narrative:
 As a user

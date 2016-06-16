@@ -1,4 +1,5 @@
 Meta:
+@api
 
 Narrative:
 As a user
