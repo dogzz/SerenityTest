@@ -1,6 +1,7 @@
 Meta:
 @tag feature: repeater
 @web
+@issue ST-06
 
 Narrative:
 As a user

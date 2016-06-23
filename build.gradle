@@ -33,7 +33,8 @@ dependencies {
     compile('org.assertj:assertj-core:1.7.0')
     compile 'ch.qos.logback:logback-classic:1.1.7'
     compile 'com.fasterxml.jackson:jackson-datatype-json-org:1.8.0'
-    compile 'net.serenity-bdd:serenity-jbehave:1.0.21'
+//    compile 'net.serenity-bdd:serenity-jbehave:1.0.21'
+    compile 'net.serenity-bdd:serenity-jbehave:1.13.0'
 }
 
 test {
