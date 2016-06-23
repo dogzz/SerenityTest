@@ -14,7 +14,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.36")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.37-rc.6")
     }
 }
 
@@ -25,9 +25,9 @@ apply plugin: 'net.serenity-bdd.aggregator'
 
 dependencies {
     compile 'com.paulhammant:ngwebdriver:0.9.6'
-    compile 'net.serenity-bdd:serenity-core:1.1.36'
-    compile 'net.serenity-bdd:serenity-rest-assured:1.1.36'
-    compile 'net.serenity-bdd:serenity-junit:1.1.36'
+    compile 'net.serenity-bdd:serenity-core:1.1.37-rc.6'
+    compile 'net.serenity-bdd:serenity-rest-assured:1.1.37-rc.6'
+    compile 'net.serenity-bdd:serenity-junit:1.1.37-rc.6'
     compile 'junit:junit:4.12'
     compile 'org.seleniumhq.selenium:htmlunit-driver:2.21'
     compile('org.assertj:assertj-core:1.7.0')
