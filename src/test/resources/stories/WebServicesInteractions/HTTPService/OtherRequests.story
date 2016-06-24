@@ -1,4 +1,5 @@
 Meta:
+@api
 @issue ST-08
 
 Narrative:
