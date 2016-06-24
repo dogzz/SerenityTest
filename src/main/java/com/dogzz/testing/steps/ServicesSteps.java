@@ -13,16 +13,15 @@ import net.thucydides.core.matchers.BeanMatcher;
 import java.util.List;
 import java.util.Map;
 
-import static ch.lambdaj.Lambda.join;
 import static net.serenitybdd.rest.SerenityRest.*;
-import static net.thucydides.core.matchers.BeanMatcherAsserts.matches;
+import static net.thucydides.core.matchers.BeanMatcherAsserts.shouldNotMatch;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.*;
 
 
 public class ServicesSteps {
 
-    HTTPServiceRequests requests = new HTTPServiceRequests();
+    private HTTPServiceRequests requests = new HTTPServiceRequests();
     private JsonPath response;
     private List<Map<String, String>> contacts;
 
@@ -36,13 +35,13 @@ public class ServicesSteps {
 
     @Step
     public void shouldGetResponseWithParameters(String parameter1, String parameter2) {
-        JsonPath response = then().extract().body().jsonPath();
-        assertThat(response.getString("receivedJSONParam1")).isEqualTo(parameter1);
-        assertThat(response.getString("receivedJSONParam2")).isEqualTo(parameter2);
-//        then()
-//                .body("receivedJSONParam1", equalTo(parameter1))
-//                .and()
-//                .body("receivedJSONParam2", equalTo(parameter2));
+//        JsonPath response = then().extract().body().jsonPath();
+//        assertThat(response.getString("receivedJSONParam1")).isEqualTo(parameter1);
+//        assertThat(response.getString("receivedJSONParam2")).isEqualTo(parameter2);
+        then()
+                .body("receivedJSONParam1", equalTo(parameter1))
+                .and()
+                .body("receivedJSONParam2", equalTo(parameter2));
     }
 
     @Step
@@ -112,22 +111,25 @@ public class ServicesSteps {
                 .specification(requests.getContactRequestById(id))
                 .log().all()
                 .get("retrieve/{id}");
-        response = then().extract().body().jsonPath();
     }
 
     @Step
     public void returnedContactShouldHaveId(String id) {
-        assertThat(response.getString("id")).isEqualTo(id);
-//        then()
-//                .using().log().all()
-//                .defaultParser(Parser.JSON)
-//                .body("id", equalTo(id));
+//        assertThat(response.getString("id")).isEqualTo(id);
+        then()
+                .using().log().all()
+                .body("id", equalTo(id));
     }
 
     @Step
     public void returnedContactShouldHaveName(String lastName, String firstName) {
-        assertThat(response.getString("firstName")).isEqualTo(firstName);
-        assertThat(response.getString("lastName")).isEqualTo(lastName);
+        then()
+                .using().log().all()
+                .body("firstName", equalTo(firstName))
+                .and()
+                .body("lastName", equalTo(lastName));
+//        assertThat(response.getString("firstName")).isEqualTo(firstName);
+//        assertThat(response.getString("lastName")).isEqualTo(lastName);
     }
 
     @Step
@@ -188,11 +190,12 @@ public class ServicesSteps {
 
     @Step
     public void contactListShouldNotContain(BeanMatcher... matchers) {
-        if (matches(contacts, matchers)) {
-            throw new AssertionError("Found matching elements for " + join(matchers)
-                    + System.getProperty("line.separator")
-                    +"Elements where " + join(contacts));
-        }
+        shouldNotMatch(contacts, matchers);
+//        if (matches(contacts, matchers)) {
+//            throw new AssertionError("Found matching elements for " + join(matchers)
+//                    + System.getProperty("line.separator")
+//                    +"Elements where " + join(contacts));
+//        }
     }
 
     public void updateContactWithId(String id) {

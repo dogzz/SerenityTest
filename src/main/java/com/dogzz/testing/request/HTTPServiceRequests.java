@@ -8,6 +8,7 @@ package com.dogzz.testing.request;
 import com.dogzz.testing.dto.JsonData;
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.http.ContentType;
+import com.jayway.restassured.parsing.Parser;
 import com.jayway.restassured.specification.RequestSpecification;
 import net.serenitybdd.rest.RestDefaultsChained;
 
@@ -16,6 +17,7 @@ import java.util.Map;
 
 import static com.jayway.restassured.RestAssured.given;
 import static com.jayway.restassured.RestAssured.reset;
+
 
 public class HTTPServiceRequests {
 
@@ -28,6 +30,8 @@ public class HTTPServiceRequests {
         new RestDefaultsChained().setDefaultPort(80)
                 .setDefaultBasePath(defaultBasePath)
                 .setDefaultProxy("localhost", 8888);
+        RestAssured.unregisterParser("text/html");
+        RestAssured.registerParser("text/html", Parser.JSON);
         RestAssured.baseURI = "http://www.angularjshub.com";
     }
 
