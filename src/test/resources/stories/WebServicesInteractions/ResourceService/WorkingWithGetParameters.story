@@ -1,4 +1,5 @@
 Meta:
+@api
 @issue ST-13
 Narrative:
 As a user

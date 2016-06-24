@@ -28,8 +28,8 @@ public class HTTPServiceRequests {
     public HTTPServiceRequests(String defaultBasePath) {
         reset();
         new RestDefaultsChained().setDefaultPort(80)
-                .setDefaultBasePath(defaultBasePath)
-                .setDefaultProxy("localhost", 8888);
+                .setDefaultBasePath(defaultBasePath);
+//                .setDefaultProxy("localhost", 8888);
         RestAssured.unregisterParser("text/html");
         RestAssured.registerParser("text/html", Parser.JSON);
         RestAssured.baseURI = "http://www.angularjshub.com";
