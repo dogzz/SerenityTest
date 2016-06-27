@@ -14,5 +14,7 @@ public class AcceptanceTests extends SerenityStories {
         //used to allow to pass parameters from examples by their names in table
         // instead of using @Named annotation
         configuration().useParameterControls(new ParameterControls().useDelimiterNamedParameters(true));
+        configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(true)
+                .doIgnoreFailureInView(true).useStoryTimeouts(Long.toString(800));;
     }
 }
