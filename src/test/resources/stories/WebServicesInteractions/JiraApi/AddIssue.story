@@ -22,7 +22,7 @@ And the issue can be viewed in list of issues
 
 Scenario: add issue using OAuth authentication
 Meta:
-@skip
+@pending
 Given a jira user logged in using OAuth authentication
 When the user add issue
 Then the issue added succesfully
