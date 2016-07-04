@@ -51,7 +51,7 @@ public class JiraSteps {
                         withDescription(description).
                         withType("Task").
                         getMap())
-                .log().all()
+//                .log().all()
                 .when()
                 .post("/issue");
     }
@@ -64,7 +64,7 @@ public class JiraSteps {
                         withSummary(summary).
                         withDescription(description).
                         getMap())
-                .log().all()
+//                .log().all()
                 .when()
                 .put("/issue/{0}", addedIssueKey);
     }
@@ -76,7 +76,7 @@ public class JiraSteps {
                 .body(jiraRequests.updateIssue().
                         withType(issueType).
                         getMap())
-                .log().all()
+//                .log().all()
                 .when()
                 .put("/issue/{0}", addedIssueKey);
     }

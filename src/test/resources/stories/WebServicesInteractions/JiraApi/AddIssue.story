@@ -1,5 +1,3 @@
-Add Issue using different Authorization schemes
-
 Meta:
 @api
 @issue ST-07
