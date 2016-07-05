@@ -103,26 +103,34 @@ public class JiraRequests {
     }
 
     public JiraRequests withProject(String project) {
-        fieldsMap.put("project", new HashMap<String, Object>() {{
-            put("key", project);
-        }});
+        if (project != null && !project.isEmpty()) {
+            fieldsMap.put("project", new HashMap<String, Object>() {{
+                put("key", project);
+            }});
+        }
         return this;
     }
 
     public JiraRequests withSummary(String summary) {
-        fieldsMap.put("summary", summary);
+        if (summary != null && !summary.isEmpty()) {
+            fieldsMap.put("summary", summary);
+        }
         return this;
     }
 
     public JiraRequests withDescription(String description) {
-        fieldsMap.put("description", description);
+        if (description != null && !description.isEmpty()) {
+            fieldsMap.put("description", description);
+        }
         return this;
     }
 
     public JiraRequests withType(String type) {
-        fieldsMap.put("issuetype", new HashMap<String, Object>() {{
-            put("name", type);
-        }});
+        if (type !=null && !type.isEmpty()) {
+            fieldsMap.put("issuetype", new HashMap<String, Object>() {{
+                put("name", type);
+            }});
+        }
         return this;
     }
 

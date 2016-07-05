@@ -34,4 +34,8 @@ public class JiraResponses {
     public String getType() {
         return response.getString(String.format(FIND_ISSUE_BY_ID, id) + ".fields.issuetype.name");
     }
+
+    public String getError() {
+        return response.getJsonObject("errors").toString();
+    }
 }

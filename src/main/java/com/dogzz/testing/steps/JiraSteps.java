@@ -43,13 +43,18 @@ public class JiraSteps {
 
     @Step
     public void addIssueWithTypeTask(String project, String summary, String description) {
+        addIssue(project, summary, description, "Task");
+    }
+
+    @Step
+    public void addIssue(String project, String summary, String description, String type) {
         given()
                 .specification(requestSpec)
                 .body(jiraRequests.addIssue().
                         withProject(project).
                         withSummary(summary).
                         withDescription(description).
-                        withType("Task").
+                        withType(type).
                         getMap())
 //                .log().all()
                 .when()
@@ -134,5 +139,19 @@ public class JiraSteps {
         JsonPath response = then().extract().body().jsonPath();
         String actualType = jiraResponses.withResponse(response).forIssuedId(id).getType();
         assertThat(actualType, equalToIgnoringCase(issueType));
+    }
+
+    @Step
+    public void issueShouldNotBeAdded() {
+        then()
+                .statusCode(not(isOneOf(200, 201)))
+                .body("id", is(nullValue()));
+    }
+
+    @Step
+    public void errorShouldBeReturned(String error) {
+        JsonPath response = then().extract().body().jsonPath();
+        String actualError = jiraResponses.withResponse(response).getError();
+        assertThat(actualError, containsString(error));
     }
 }

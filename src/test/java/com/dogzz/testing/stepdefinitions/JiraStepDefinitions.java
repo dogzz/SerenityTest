@@ -20,6 +20,7 @@ public class JiraStepDefinitions {
     JiraSteps jiraSteps;
     private String summary;
     private String description;
+    private int issuesCount;
 
     @Given("a jira user logged in using basic authentication")
     public void logInUsingBasicAuthentication() {
@@ -47,6 +48,17 @@ public class JiraStepDefinitions {
         jiraSteps.addIssueWithTypeTask("TAP", summary, description);
     }
 
+    @Given("a system with some issues")
+    public void logInAndGetIssuesCount() {
+        jiraSteps.logInUsingBasicAuth();
+    }
+
+    @When("the user add issue with fields $summary, $type, $description, and $project")
+    public void addJiraIssueWithFields(String summary, String type,
+                                       String description, String project) {
+        jiraSteps.addIssue(project, summary, description, type);
+    }
+
     @Then("the issue added succesfully")
     public void issueShouldBeAdded() {
         jiraSteps.issueShouldBeAdded();
@@ -58,6 +70,15 @@ public class JiraStepDefinitions {
         jiraSteps.getAllIssuesForProject("TAP");
         jiraSteps.issueShouldBePresent(addedIssueId, summary, description);
         jiraSteps.issueShouldBePresentAlternative(addedIssueId, summary, description);
+    }
+
+    @Then("the issue can be viewed in list of issues with correct $summary, $type, $description, and $project")
+    public void issueShouldPresentInListWithFields(String summary, String type,
+                                                   String description, String project) {
+        jiraSteps.getAllIssuesForProject(project);
+        jiraSteps.issueShouldBePresent(addedIssueId, summary, description);
+        jiraSteps.issueShouldBePresentAlternative(addedIssueId, summary, description);
+        jiraSteps.issueShouldHaveType(addedIssueId, type);
     }
 
     @Given("a system with issue")
@@ -100,5 +121,11 @@ public class JiraStepDefinitions {
     public void issueShouldPresentInListWithChangedType() {
         jiraSteps.getAllIssuesForProject("TAP");
         jiraSteps.issueShouldHaveType(addedIssueId, "Bug");
+    }
+
+    @Then("the error message is received with mention of $error")
+    public void issueShouldBeUpdated(String error) {
+        jiraSteps.issueShouldNotBeAdded();
+        jiraSteps.errorShouldBeReturned(error);
     }
 }
