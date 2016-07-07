@@ -5,6 +5,7 @@
 
 package com.dogzz.testing.request;
 
+import com.dogzz.testing.TestProperties;
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.authentication.OAuthSignature;
 import com.jayway.restassured.filter.Filter;
@@ -23,10 +24,9 @@ import static com.jayway.restassured.http.ContentType.JSON;
 import static com.jayway.restassured.RestAssured.given;
 import static com.jayway.restassured.RestAssured.reset;
 
-public class JiraRequests {
+public class JiraRequests extends BaseRequests {
 
     public static final String JSESSIONID = "JSESSIONID";
-    RestDefaultsChained restConfig = new RestDefaultsChained();
     private String testuser = "testuser";
     private String testpassword = "testpassword";
     private String accessToken = "u6845KAm9SJWn0GUsSAMgMeEtkzVi2l8";
@@ -34,11 +34,10 @@ public class JiraRequests {
     private Map<String, Object> fieldsMap;
 
     public JiraRequests() {
-        reset();
+        super();
         restConfig.setDefaultPort(8080)
-                .setDefaultBasePath("/rest/api/2/")
-                .setDefaultProxy("localhost", 8888);
-        RestAssured.baseURI = "http://172.28.118.61";
+                .setDefaultBasePath("/rest/api/2/");
+        RestAssured.baseURI = TestProperties.jiraUrl;
     }
 
     public RequestSpecification getBasicAuthenticationSpec() {

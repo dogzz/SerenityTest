@@ -43,6 +43,19 @@ test {
 //    systemProperties System.getProperties()
     systemProperty "metafilter", System.getProperty("metafilter")
     systemProperty "webdriver.driver", System.getProperty("webdriver.driver")
+    systemProperty "webdriver.base.url", System.getProperty("webdriver.base.url")
+    def propFile = new File("test.properties")
+    propFile.write("")
+    if(project.hasProperty('jiraurl')){
+        propFile.append("jiraurl = " + project.property('jiraurl') + "\n")
+    }
+    if(project.hasProperty('angularServicesUrl')){
+        propFile.append("angularServicesUrl = " + project.property('angularServicesUrl')+ "\n")
+    }
+    if(project.hasProperty('proxy')){
+        propFile.append("proxy = " + project.property('proxy')+ "\n")
+    }
+
 }
 
 gradle.startParameter.continueOnFailure = true

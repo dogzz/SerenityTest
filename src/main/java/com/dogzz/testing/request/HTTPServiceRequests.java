@@ -5,12 +5,16 @@
 
 package com.dogzz.testing.request;
 
+import com.dogzz.testing.TestProperties;
 import com.dogzz.testing.dto.JsonData;
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.parsing.Parser;
 import com.jayway.restassured.specification.RequestSpecification;
+import net.serenitybdd.core.Serenity;
+import net.serenitybdd.core.SerenitySystemProperties;
 import net.serenitybdd.rest.RestDefaultsChained;
+import net.thucydides.core.ThucydidesSystemProperty;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,20 +23,20 @@ import static com.jayway.restassured.RestAssured.given;
 import static com.jayway.restassured.RestAssured.reset;
 
 
-public class HTTPServiceRequests {
+public class HTTPServiceRequests extends BaseRequests {
 
     public HTTPServiceRequests() {
         this("code/examples/servercalls/01_HTTPService/");
     }
 
     public HTTPServiceRequests(String defaultBasePath) {
-        reset();
-        new RestDefaultsChained().setDefaultPort(80)
+        super();
+        restConfig.setDefaultPort(80)
                 .setDefaultBasePath(defaultBasePath);
-//                .setDefaultProxy("localhost", 8888);
         RestAssured.unregisterParser("text/html");
         RestAssured.registerParser("text/html", Parser.JSON);
-        RestAssured.baseURI = "http://www.angularjshub.com";
+        RestAssured.baseURI = SerenitySystemProperties.getProperties().getValue(ThucydidesSystemProperty.WEBDRIVER_BASE_URL);
+//        RestAssured.baseURI = TestProperties.angularServicesUrl;
     }
 
     public RequestSpecification getJSONRequest(String param1, String param2) {
