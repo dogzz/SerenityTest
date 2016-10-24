@@ -45,7 +45,7 @@ public class JiraStepDefinitions {
 
     @When("the user add issue")
     public void addJiraIssue() {
-        jiraSteps.addIssueWithTypeTask("TAP", summary, description);
+        jiraSteps.addIssueWithTypeTask("TST", summary, description);
     }
 
     @Given("a system with some issues")
@@ -67,7 +67,7 @@ public class JiraStepDefinitions {
 
     @Then("the issue can be viewed in list of issues")
     public void issueShouldPresentInList() {
-        jiraSteps.getAllIssuesForProject("TAP");
+        jiraSteps.getAllIssuesForProject("TST");
         jiraSteps.issueShouldBePresent(addedIssueId, summary, description);
         jiraSteps.issueShouldBePresentAlternative(addedIssueId, summary, description);
     }
@@ -86,7 +86,7 @@ public class JiraStepDefinitions {
         jiraSteps.logInUsingBasicAuth();
         summary = "New Issue to be updated";
         description = "The issue demonstrates the ability to perform update";
-        jiraSteps.addIssueWithTypeTask("TAP", summary, description);
+        jiraSteps.addIssueWithTypeTask("TST", summary, description);
         addedIssueKey= jiraSteps.noteRecentlyAddedIssueKey();
         addedIssueId= jiraSteps.noteRecentlyAddedIssueId();
     }
@@ -112,14 +112,14 @@ public class JiraStepDefinitions {
 
     @Then("changed Summary and Description can be viewed")
     public void issueShouldPresentInListWithChangedFields() {
-        jiraSteps.getAllIssuesForProject("TAP");
+        jiraSteps.getAllIssuesForProject("TST");
         jiraSteps.issueShouldBePresent(addedIssueId, summary, description);
         jiraSteps.issueShouldBePresentAlternative(addedIssueId, summary, description);
     }
 
     @Then("changed Type can be viewed")
     public void issueShouldPresentInListWithChangedType() {
-        jiraSteps.getAllIssuesForProject("TAP");
+        jiraSteps.getAllIssuesForProject("TST");
         jiraSteps.issueShouldHaveType(addedIssueId, "Bug");
     }
 

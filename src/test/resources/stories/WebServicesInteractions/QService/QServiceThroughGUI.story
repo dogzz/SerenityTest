@@ -1,4 +1,5 @@
 Meta:
+@web
 @issue ST-10
 
 Narrative:

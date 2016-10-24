@@ -1,4 +1,5 @@
 Meta:
+@web
 @issue ST-03
 Narrative:
 As a user

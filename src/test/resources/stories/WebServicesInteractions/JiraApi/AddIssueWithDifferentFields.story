@@ -16,8 +16,8 @@ And the issue can be viewed in list of issues with correct <summary>, <type>, <d
 
 Examples:
 |summary|type|description|project|
-|summary1|Task|description 1|TAP|
-|summary2|Task|description 2|TAP|
+|summary1|Task|description 1|TST|
+|summary2|Task|description 2|TST|
 
 
 Scenario: add issue with incorrect fields
@@ -27,6 +27,6 @@ Then the error message is received with mention of <error>
 
 Examples:
 |summary|type|description|project|error|
-||Task|description 1|TAP|summary|
+||Task|description 1|TST|summary|
 |summary2|Task|description 2|NONE|project|
-|summary3|NONE|description 3|TAP|type|
+|summary3|NONE|description 3|TST|type|

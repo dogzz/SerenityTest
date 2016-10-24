@@ -1,4 +1,5 @@
 Meta:
+@web
 @issue ST-02
 Narrative:
 As a tester
